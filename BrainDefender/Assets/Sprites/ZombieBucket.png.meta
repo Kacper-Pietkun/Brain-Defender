@@ -1,0 +1,334 @@
+fileFormatVersion: 2
+guid: 352b7dbbac75ffd468491e1390a7ad2d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3286822719774589257
+    second: ZombieBucket_0
+  - first:
+      213: -7940015152135645705
+    second: ZombieBucket_1
+  - first:
+      213: 560128384370386594
+    second: ZombieBucket_2
+  - first:
+      213: -8406973950769554033
+    second: ZombieBucket_3
+  - first:
+      213: -5483349715409174458
+    second: ZombieBucket_4
+  - first:
+      213: 2986110932892072724
+    second: ZombieBucket_5
+  - first:
+      213: -8679915192599447909
+    second: ZombieBucket_6
+  - first:
+      213: 9108892032714933682
+    second: ZombieBucket_7
+  - first:
+      213: -8062526448673520231
+    second: ZombieBucket_8
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZombieBucket_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 659
+        width: 659
+        height: 500
+      alignment: 9
+      pivot: {x: 0.49279687, y: 0.1297467}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94109db69d32d9d20800000000000000
+      internalID: 3286822719774589257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_1
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 744
+        width: 478
+        height: 410
+      alignment: 9
+      pivot: {x: 0.5364122, y: 0.04461238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f55cb189466fc190800000000000000
+      internalID: -7940015152135645705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_2
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 520
+        width: 412
+        height: 413
+      alignment: 9
+      pivot: {x: 0.4846378, y: 0.090063356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6a2034cc9f5c700800000000000000
+      internalID: 560128384370386594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 489
+        width: 219
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5072249, y: 0.63005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d1b6cdbbd645b80800000000000000
+      internalID: -8406973950769554033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_4
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 395
+        width: 398
+        height: 192
+      alignment: 9
+      pivot: {x: 0.05871122, y: 0.88732845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6400cc16c7a37e3b0800000000000000
+      internalID: -5483349715409174458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 351
+        width: 153
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4999999, y: 0.20614712}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b31f6821cc07920800000000000000
+      internalID: 2986110932892072724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 179
+        width: 190
+        height: 262
+      alignment: 9
+      pivot: {x: 0.66655564, y: 0.9167068}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96f798de1fba8780800000000000000
+      internalID: -8679915192599447909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_7
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 159
+        width: 188
+        height: 241
+      alignment: 9
+      pivot: {x: 0.56733054, y: 0.9595828}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b50c53fa09496e70800000000000000
+      internalID: 9108892032714933682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieBucket_8
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 164
+        width: 374
+        height: 161
+      alignment: 9
+      pivot: {x: 0.05577732, y: 0.3034434}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9958f9a79e62c1090800000000000000
+      internalID: -8062526448673520231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
