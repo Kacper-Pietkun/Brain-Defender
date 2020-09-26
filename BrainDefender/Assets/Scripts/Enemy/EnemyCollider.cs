@@ -5,13 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyStatistics))]
 [RequireComponent(typeof(EnemyMovement))]
 [RequireComponent(typeof(EnemyActions))]
-[RequireComponent(typeof(EnemyAnimator))]
 public class EnemyCollider : MonoBehaviour
 {
     private EnemyStatistics enemyStatistics;
     private EnemyMovement enemyMovement;
     private EnemyActions enemyActions;
-    private EnemyAnimator enemyAnimator;
     private GameObject brain;
 
 
@@ -20,14 +18,12 @@ public class EnemyCollider : MonoBehaviour
         enemyStatistics = GetComponent<EnemyStatistics>();
         enemyMovement = GetComponent<EnemyMovement>();
         enemyActions = GetComponent<EnemyActions>();
-        enemyAnimator = GetComponent<EnemyAnimator>();
         brain = GameObject.FindGameObjectWithTag(Tags.Brain);
     }
 
     public void OnMouseDown()
     {
         PushAwayEnemy();
-        enemyAnimator.PlayPushedAwayAnimation();
         enemyActions.TakeDamage(Values.AttackDamage);
     }
 

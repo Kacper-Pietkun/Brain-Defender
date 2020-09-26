@@ -1,25 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyActions))]
 public class EnemyAnimator : MonoBehaviour
 {
-    public void PlayPushedAwayAnimation()
-    {
-        StartCoroutine(PushedAwayAnimation());
-    }
-
-    public void PlayDieAnimation()
-    {
-        animator.SetBool("isDead", true);
-    }
-
-
     private Animator animator;
+    private EnemyActions enemyActions;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        enemyActions = GetComponentInChildren<EnemyActions>();
+        enemyActions.OnTakenDamage += OnTakenDamage;
+    }
+
+    private void OnTakenDamage(float damagePercent, int actualHealtPoints)
+    {
+        print(actualHealtPoints);
+        if (actualHealtPoints <= 0)
+            animator.SetBool("isDead", true);
+        else
+            StartCoroutine(PushedAwayAnimation());
+
     }
 
     private IEnumerator PushedAwayAnimation()

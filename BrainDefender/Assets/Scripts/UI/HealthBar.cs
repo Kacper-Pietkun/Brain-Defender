@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
         enemyActions.OnTakenDamage += TakenDamage;
     }
 
-    private void TakenDamage(float damagePercent)
+    private void TakenDamage(float damagePercent, int actualHealtPoints)
     {
         StartCoroutine(ReduceHealtBar(healtBarImage.fillAmount, healtBarImage.fillAmount - damagePercent));
     }
