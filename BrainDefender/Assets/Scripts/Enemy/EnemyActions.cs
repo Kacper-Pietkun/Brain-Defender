@@ -28,7 +28,7 @@ public class EnemyActions : MonoBehaviour
 
     private void Die()
     {
-        GameObject.Destroy(gameObject, 1.0f);
+        GameObject.Destroy(gameObject, 0.7f);
         OnDied?.Invoke(this, EventArgs.Empty);
         // TODO:
         // - add points to the score

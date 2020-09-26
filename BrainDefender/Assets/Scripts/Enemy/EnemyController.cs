@@ -8,12 +8,14 @@ public class EnemyController : MonoBehaviour
 {
     private EnemyMovement enemyMovement;
     private EnemyStatistics enemyStatistics;
+    private Animator animator;
     private GameObject brain;
 
     private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         enemyStatistics = GetComponent<EnemyStatistics>();
+        animator = GetComponentInChildren<Animator>();
         brain = GameObject.FindGameObjectWithTag(Tags.Brain);
     }
 
@@ -22,7 +24,8 @@ public class EnemyController : MonoBehaviour
         Vector3 distance = GetDistance();
         distance = distance.magnitude <= enemyStatistics.MinimalDistance ? Vector3.zero : distance; // We don't want enemy to come to close to the brain (for animation purpose)
         Vector3 direction = Vector3.Normalize(distance);
-        enemyMovement.Move(direction, enemyStatistics.MovementSpeed);
+        if(animator.GetBool("isDead") == false)
+            enemyMovement.Move(direction, enemyStatistics.MovementSpeed);
     }
 
     private Vector3 GetDistance()
