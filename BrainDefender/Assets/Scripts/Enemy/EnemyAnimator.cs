@@ -18,7 +18,6 @@ public class EnemyAnimator : MonoBehaviour
 
     private void OnTakenDamage(float damagePercent, int actualHealtPoints)
     {
-        print(actualHealtPoints);
         if (actualHealtPoints <= 0)
             animator.SetBool("isDead", true);
         else
