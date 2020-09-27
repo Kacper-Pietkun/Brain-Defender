@@ -7,4 +7,6 @@ public static class Tags
     public static string Brain = "Brain";
     public static string Enemy = "Enemy";
     public static string EnemiesSpawner = "EnemiesSpawner";
+    public static string Cloud = "Cloud";
+    public static string ZombiePedestrian = "ZombiePedestrian";
 }
