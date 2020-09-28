@@ -9,7 +9,7 @@ public class MainMenuButtons : MonoBehaviour
     public void PlayButton()
     {
         cameraController.OnCameraMoved += waveManager.StartGame;
-        StartCoroutine(cameraController.MoveCameraXAxis(mainCamera.transform.position, brain.transform.position));
+        StartCoroutine(cameraController.MoveCameraXAxis(brain.transform.position));
     }
 
     public void ShopButton()
@@ -23,8 +23,6 @@ public class MainMenuButtons : MonoBehaviour
     }
 
 
-
-    private GameObject mainCamera;
     private GameObject brain;
     private WavesManager waveManager;
     private CameraController cameraController;
@@ -32,7 +30,6 @@ public class MainMenuButtons : MonoBehaviour
 
     private void Awake()
     {
-        mainCamera = GameObject.FindGameObjectWithTag(Tags.MainCamera);
         cameraController = GameObject.FindGameObjectWithTag(Tags.MainCamera).GetComponent<CameraController>();
         brain = GameObject.FindGameObjectWithTag(Tags.Brain);
         waveManager = GameObject.FindGameObjectWithTag(Tags.WavesManager).GetComponent<WavesManager>();

@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class InGameButtons : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PauseButton()
     {
-        
+        // cameraController.OnCameraMoved += PauseGame;
+        StartCoroutine(cameraController.MoveCameraXAxis(pauseBlock.transform.position));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MenuButton()
     {
-        
+        cameraController.OnCameraMoved += waveManager.ResetCurrentGameInfo;
+        cameraController.OnCameraMoved += enemySpawner.DestroyAllEnemies;
+        StartCoroutine(cameraController.MoveCameraXAxis(mainMenuBlock.transform.position));
+    }
+
+
+    private GameObject mainMenuBlock;
+    private GameObject pauseBlock;
+    private WavesManager waveManager;
+    private EnemySpawner enemySpawner;
+    private CameraController cameraController;
+
+
+    private void Awake()
+    {
+        mainMenuBlock = GameObject.FindGameObjectWithTag(Tags.MainMenuBlock);
+        pauseBlock = GameObject.FindGameObjectWithTag(Tags.PauseBlock);
+        cameraController = GameObject.FindGameObjectWithTag(Tags.MainCamera).GetComponent<CameraController>();
+        waveManager = GameObject.FindGameObjectWithTag(Tags.WavesManager).GetComponent<WavesManager>();
+        enemySpawner = GameObject.FindGameObjectWithTag(Tags.EnemiesSpawner).GetComponent<EnemySpawner>();
     }
 }

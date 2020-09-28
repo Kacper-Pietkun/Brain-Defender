@@ -11,4 +11,6 @@ public static class Tags
     public static string ZombiePedestrian = "ZombiePedestrian";
     public static string MainCamera = "MainCamera";
     public static string WavesManager = "WavesManager";
+    public static string PauseBlock = "PauseBlock";
+    public static string MainMenuBlock = "MainMenuBlock";
 }

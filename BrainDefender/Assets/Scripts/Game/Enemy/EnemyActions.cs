@@ -20,14 +20,17 @@ public class EnemyActions : MonoBehaviour
 
 
     private EnemyStatistics enemyStatistics;
+    private EnemySpawner enemySpawner;
 
     private void Awake()
     {
         enemyStatistics = GetComponent<EnemyStatistics>();
+        enemySpawner = GameObject.FindGameObjectWithTag(Tags.EnemiesSpawner).GetComponent<EnemySpawner>();
     }
 
     private void Die()
     {
+        enemySpawner.AliveEnemies.Remove(gameObject);
         GameObject.Destroy(gameObject, 0.7f);
         OnDied?.Invoke(this, EventArgs.Empty);
         // TODO:

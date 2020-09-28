@@ -10,6 +10,8 @@ TagManager:
   - Cloud
   - ZombiePedestrian
   - WavesManager
+  - PauseBlock
+  - MainMenuBlock
   layers:
   - Default
   - TransparentFX

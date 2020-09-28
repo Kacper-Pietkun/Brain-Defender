@@ -10,9 +10,21 @@ public class WavesManager : MonoBehaviour
         NextWave();
     }
 
+    public void ResetCurrentGameInfo(System.Object obj, EventArgs args)
+    {
+        waveNumber = 0;
+        aliveEnemies = 0;
+        spawnWaveNumber = 15;
+        spawnRoundNumber = 3;
+        spawnRoundInterval = 6;
+        if(spawningCoroutine != null)
+            StopCoroutine(spawningCoroutine);
+}
+
 
 
     private EnemySpawner enemySpawner;
+    private Coroutine spawningCoroutine;
 
     private int waveNumber = 0;
     private int aliveEnemies = 0;
@@ -46,13 +58,13 @@ public class WavesManager : MonoBehaviour
         if (waveNumber > 1)
             StartCoroutine(PauseBetweenWaves());
         else
-            StartCoroutine(SpawnWave());
+            spawningCoroutine = StartCoroutine(SpawnWave());
     }
 
     private IEnumerator PauseBetweenWaves()
     {
         yield return new WaitForSeconds(spawnRoundInterval);
-        StartCoroutine(SpawnWave());
+        spawningCoroutine = StartCoroutine(SpawnWave());
     }
 
     private IEnumerator SpawnWave()

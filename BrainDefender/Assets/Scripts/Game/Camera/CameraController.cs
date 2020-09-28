@@ -9,8 +9,9 @@ public class CameraController : MonoBehaviour
     private float cameraAnimationTime;
     public event EventHandler OnCameraMoved;
 
-    public IEnumerator MoveCameraXAxis(Vector3 cameraStartPosition, Vector3 destination)
+    public IEnumerator MoveCameraXAxis(Vector3 destination)
     {
+        Vector3 cameraStartPosition = transform.position;
         float currentTime = 0;
         while (currentTime < cameraAnimationTime)
         {

@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject EnemyPrefab;
+    [SerializeField]
+    private GameObject EnemyPrefab;
+    public List<GameObject> AliveEnemies { get; set; }
 
     public void SpawnEnemy(float movementSpeed, int healthPoints, int attackDamage, int weight, float minimalDistance)
     {
@@ -15,6 +19,16 @@ public class EnemySpawner : MonoBehaviour
         enemyStatistics.AttackDamage = attackDamage;
         enemyStatistics.Weight = weight;
         enemyStatistics.MinimalDistance = minimalDistance;
+        AliveEnemies.Add(enemy);
+    }
+
+    public void DestroyAllEnemies(System.Object obj, EventArgs args)
+    {
+        foreach (GameObject enemy in AliveEnemies)
+        {
+            Destroy(enemy);
+        }
+        AliveEnemies = new List<GameObject>();
     }
 
 
@@ -27,16 +41,17 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        Random.InitState((int)System.DateTime.Now.Ticks);
+        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
         brain = GameObject.FindGameObjectWithTag(Tags.Brain);
+        AliveEnemies = new List<GameObject>();
     }
 
     // Position which is not in camera's sight
     private Vector3 GetRandomPosition()
     {
-        bool isLeft = Random.Range(0, 2) == 0 ? true : false;
-        float posY = Random.Range(minPosY, maxPosY);
-        float posX = Random.Range(minlengthFromBrainX, maxlengthFromBrainX);
+        bool isLeft = UnityEngine.Random.Range(0, 2) == 0 ? true : false;
+        float posY = UnityEngine.Random.Range(minPosY, maxPosY);
+        float posX = UnityEngine.Random.Range(minlengthFromBrainX, maxlengthFromBrainX);
         if (isLeft)
             posX = brain.transform.position.x - posX;
         else
