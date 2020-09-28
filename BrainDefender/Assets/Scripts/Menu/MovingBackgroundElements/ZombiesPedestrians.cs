@@ -11,9 +11,6 @@ public class ZombiesPedestrians : MovingBackgroundElements
         maxSpeed = 1f;
         base.Awake();
         for (int i = 0; i < objects.Length; i++)
-        {
-            print(objects[i].transform.eulerAngles.y);
             objectsDirection[i] = objects[i].transform.eulerAngles.y > 90 ? Vector3.left : Vector3.right;
-        }
     }
 }

@@ -9,4 +9,6 @@ public static class Tags
     public static string EnemiesSpawner = "EnemiesSpawner";
     public static string Cloud = "Cloud";
     public static string ZombiePedestrian = "ZombiePedestrian";
+    public static string MainCamera = "MainCamera";
+    public static string WavesManager = "WavesManager";
 }

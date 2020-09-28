@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2599969905456701152, guid: b7e65492df0402149af93370ea335c08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4681740176365843576}
   - component: {fileID: 4681740176365843577}
-  - component: {fileID: 2110000340482705463}
   m_Layer: 0
   m_Name: Street Lamp
   m_TagString: Untagged
@@ -109,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 4681740176365843575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.24, y: 2.313735, z: -47.446842}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 53.394493, y: 53.394493, z: 53.394493}
   m_Children:
   - {fileID: 4681740175850690635}
   - {fileID: 4681740176926592054}
@@ -135,18 +134,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2110000340482705463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681740176365843575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344fcccd376071245aee85e6233c9d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4681740176926592052
 GameObject:
   m_ObjectHideFlags: 0

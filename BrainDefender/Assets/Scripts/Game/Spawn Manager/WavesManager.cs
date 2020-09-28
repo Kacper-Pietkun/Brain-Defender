@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class WavesManager : MonoBehaviour
 {
+    public void StartGame()
+    {
+        NextWave();
+    }
+
+
+
     private EnemySpawner enemySpawner;
 
     private int waveNumber = 0;
@@ -30,11 +37,6 @@ public class WavesManager : MonoBehaviour
     {
         enemySpawner = GameObject.FindGameObjectWithTag(Tags.EnemiesSpawner).GetComponent<EnemySpawner>();
         EnemyActions.OnDied += OnEnemyDied;
-    }
-
-    private void Start()
-    {
-        NextWave();
     }
 
     private void NextWave()

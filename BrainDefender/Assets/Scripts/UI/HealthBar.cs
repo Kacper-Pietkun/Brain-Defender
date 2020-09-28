@@ -35,6 +35,8 @@ public class HealthBar : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         healtBarImage.fillAmount = endValue;
+        if (endValue <= 0) 
+            Destroy(gameObject.transform.parent.gameObject);
     }
 
     private void TryChangeHealtBarColor()

@@ -18,31 +18,30 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-    private int maxPosition;
     private GameObject brain;
+    private float maxPosY = -1.25f;
+    private float minPosY = -5.5f;
+    private int minlengthFromBrainX = 15;
+    private int maxlengthFromBrainX = 20;
+
 
     private void Awake()
     {
         Random.InitState((int)System.DateTime.Now.Ticks);
         brain = GameObject.FindGameObjectWithTag(Tags.Brain);
-        maxPosition = 13;
     }
 
     // Position which is not in camera's sight
     private Vector3 GetRandomPosition()
     {
-        bool isVertical = Random.Range(0, 2) == 0 ? true : false;
-        float posX, posY;
-        if(isVertical)
-        {
-            posX = Random.Range(0, 2) == 0 ? maxPosition : -maxPosition;
-            posY = Random.Range(0.0f, 1.0f) * maxPosition * (Random.Range(0, 2) == 0 ? 1 : -1);
-        }
+        bool isLeft = Random.Range(0, 2) == 0 ? true : false;
+        float posY = Random.Range(minPosY, maxPosY);
+        float posX = Random.Range(minlengthFromBrainX, maxlengthFromBrainX);
+        if (isLeft)
+            posX = brain.transform.position.x - posX;
         else
-        {
-            posX = Random.Range(0.0f, 1.0f) * maxPosition * (Random.Range(0, 2) == 0 ? 1 : -1);
-            posY = Random.Range(0, 2) == 0 ? maxPosition : -maxPosition;
-        }
+            posX = brain.transform.position.x + posX;
+
         return new Vector3(posX, posY, 0);
     }
 

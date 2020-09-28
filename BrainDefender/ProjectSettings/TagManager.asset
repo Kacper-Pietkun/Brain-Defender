@@ -9,6 +9,7 @@ TagManager:
   - EnemiesSpawner
   - Cloud
   - ZombiePedestrian
+  - WavesManager
   layers:
   - Default
   - TransparentFX
