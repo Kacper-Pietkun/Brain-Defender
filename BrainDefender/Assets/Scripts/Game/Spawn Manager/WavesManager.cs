@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WavesManager : MonoBehaviour
 {
-    public void StartGame()
+    public void StartGame(System.Object obj, EventArgs args)
     {
         NextWave();
     }
