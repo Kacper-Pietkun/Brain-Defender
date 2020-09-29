@@ -19,12 +19,26 @@ public class WavesManager : MonoBehaviour
         spawnRoundInterval = 6;
         if(spawningCoroutine != null)
             StopCoroutine(spawningCoroutine);
-}
+    }
+
+    public void StopSpawningWaves(System.Object obj, EventArgs args)
+    {
+        if (spawningCoroutine != null)
+            StopCoroutine(spawningCoroutine);
+        if(pauseCoroutine != null)
+            StopCoroutine(pauseCoroutine);
+    }
+
+    public void ResumeSpawningWaves(System.Object obj, EventArgs args)
+    {
+        pauseCoroutine = StartCoroutine(PauseBetweenWaves());
+    }
 
 
 
     private EnemySpawner enemySpawner;
     private Coroutine spawningCoroutine;
+    private Coroutine pauseCoroutine;
 
     private int waveNumber = 0;
     private int aliveEnemies = 0;
@@ -44,6 +58,7 @@ public class WavesManager : MonoBehaviour
     private int spawnRoundNumberMax = 20;
     private float spawnRoundIntervalMin = 1;
 
+    private int alreadySpawned;
 
     private void Awake()
     {
@@ -53,10 +68,11 @@ public class WavesManager : MonoBehaviour
 
     private void NextWave()
     {
+        alreadySpawned = 0;
         waveNumber++;
         aliveEnemies = spawnWaveNumber;
         if (waveNumber > 1)
-            StartCoroutine(PauseBetweenWaves());
+            pauseCoroutine = StartCoroutine(PauseBetweenWaves());
         else
             spawningCoroutine = StartCoroutine(SpawnWave());
     }
@@ -69,8 +85,6 @@ public class WavesManager : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        int alreadySpawned = 0;
-
         while (true)
         {
             for (int i = 0; i < spawnRoundNumber; i++)

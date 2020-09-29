@@ -31,6 +31,22 @@ public class EnemySpawner : MonoBehaviour
         AliveEnemies = new List<GameObject>();
     }
 
+    public void PauseEnemies(System.Object obj, EventArgs args)
+    {
+        foreach (GameObject enemy in AliveEnemies)
+        {
+            enemy.GetComponent<EnemyController>().IsPaused = true;
+        }
+    }
+
+    public void UnpauseEnemies(System.Object obj, EventArgs args)
+    {
+        foreach (GameObject enemy in AliveEnemies)
+        {
+            enemy.GetComponent<EnemyController>().IsPaused = false;
+        }
+    }
+
 
     private GameObject brain;
     private float maxPosY = -1.25f;

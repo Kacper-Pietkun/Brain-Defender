@@ -6,7 +6,8 @@ public class InGameButtons : MonoBehaviour
 {
     public void PauseButton()
     {
-        // cameraController.OnCameraMoved += PauseGame;
+        waveManager.StopSpawningWaves(this, null);
+        enemySpawner.PauseEnemies(this, null);
         StartCoroutine(cameraController.MoveCameraXAxis(pauseBlock.transform.position));
     }
 

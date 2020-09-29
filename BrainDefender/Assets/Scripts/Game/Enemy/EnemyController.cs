@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 public class EnemyController : MonoBehaviour
 {
+    public bool IsPaused { get; set; }
+
     private EnemyMovement enemyMovement;
     private EnemyStatistics enemyStatistics;
     private Animator animator;
@@ -17,6 +19,7 @@ public class EnemyController : MonoBehaviour
         enemyStatistics = GetComponent<EnemyStatistics>();
         animator = GetComponentInChildren<Animator>();
         brain = GameObject.FindGameObjectWithTag(Tags.Brain);
+        IsPaused = false;
     }
 
     private void Update()
@@ -24,7 +27,7 @@ public class EnemyController : MonoBehaviour
         Vector3 distance = GetDistance();
         distance = distance.magnitude <= enemyStatistics.MinimalDistance ? Vector3.zero : distance; // We don't want enemy to come to close to the brain (for animation purpose)
         Vector3 direction = Vector3.Normalize(distance);
-        if(animator.GetBool("isDead") == false)
+        if(animator.GetBool("isDead") == false && IsPaused == false)
             enemyMovement.Move(direction, enemyStatistics.MovementSpeed);
     }
 
