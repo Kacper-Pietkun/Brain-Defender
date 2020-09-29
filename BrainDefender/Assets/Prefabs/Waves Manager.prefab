@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3638877162499754013}
   - component: {fileID: 2253489673377785963}
+  - component: {fileID: 1329198551007349442}
   m_Layer: 0
   m_Name: Waves Manager
   m_TagString: WavesManager
@@ -41,5 +42,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d037e65b3e48fc24dad8eb8c5a6a0628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1329198551007349442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8683349101478929829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abcc8728a4a67d46a3cd6a4c83687f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(WavesList))]
 public class WavesManager : MonoBehaviour
 {
     public void StartGame(System.Object obj, EventArgs args)
@@ -12,11 +13,7 @@ public class WavesManager : MonoBehaviour
 
     public void ResetCurrentGameInfo(System.Object obj, EventArgs args)
     {
-        waveNumber = 0;
-        aliveEnemies = 0;
-        spawnWaveNumber = 15;
-        spawnRoundNumber = 3;
-        spawnRoundInterval = 6;
+        waveNumber = -1;
         if(spawningCoroutine != null)
             StopCoroutine(spawningCoroutine);
     }
@@ -31,7 +28,7 @@ public class WavesManager : MonoBehaviour
 
     public void ResumeSpawningWaves(System.Object obj, EventArgs args)
     {
-        pauseCoroutine = StartCoroutine(PauseBetweenWaves());
+        pauseCoroutine = StartCoroutine(PauseBetweenSpawning());
     }
 
 
@@ -39,69 +36,53 @@ public class WavesManager : MonoBehaviour
     private EnemySpawner enemySpawner;
     private Coroutine spawningCoroutine;
     private Coroutine pauseCoroutine;
+    private WavesList wavesList;
 
-    private int waveNumber = 0;
-    private int aliveEnemies = 0;
+    private int waveNumber;
+    private int roundNumber;
+    private int aliveEnemies;
 
-    // Information for given wave
-    private int spawnWaveNumber = 15;
-    private int spawnRoundNumber = 3;
-    private float spawnRoundInterval = 6;
-
-    // Delta descirbes how much given variable will change after one round (not wave) (round is when one set of enemies spawn during a wave)
-    private int spawnWaveNumberDelta = 5;
-    private int spawnRoundNumberDelta = 1;
-    private float spawnRoundIntervalDelta = 0.2f;
-
-    // Maximum and minimum values of given variables
-    private int spawnWaveNumberMax = 160;
-    private int spawnRoundNumberMax = 20;
-    private float spawnRoundIntervalMin = 1;
-
-    private int alreadySpawned;
 
     private void Awake()
     {
+        wavesList = GetComponent<WavesList>();
         enemySpawner = GameObject.FindGameObjectWithTag(Tags.EnemiesSpawner).GetComponent<EnemySpawner>();
         EnemyActions.OnDied += OnEnemyDied;
+
+        waveNumber = -1;
     }
 
     private void NextWave()
     {
-        alreadySpawned = 0;
         waveNumber++;
-        aliveEnemies = spawnWaveNumber;
-        if (waveNumber > 1)
-            pauseCoroutine = StartCoroutine(PauseBetweenWaves());
+        roundNumber = 0;
+        aliveEnemies = wavesList.waves[waveNumber].GetNumberOfAllZombies();
+
+        if (waveNumber > 0)
+            pauseCoroutine = StartCoroutine(PauseBetweenSpawning());
         else
             spawningCoroutine = StartCoroutine(SpawnWave());
     }
 
-    private IEnumerator PauseBetweenWaves()
+    private IEnumerator PauseBetweenSpawning()
     {
-        yield return new WaitForSeconds(spawnRoundInterval);
+        yield return new WaitForSeconds(wavesList.waves[waveNumber].SpawnRoundInterval);
         spawningCoroutine = StartCoroutine(SpawnWave());
     }
 
     private IEnumerator SpawnWave()
     {
-        while (true)
+        while (roundNumber < wavesList.waves[waveNumber].RoundsNumber)
         {
-            for (int i = 0; i < spawnRoundNumber; i++)
-                enemySpawner.SpawnEnemy(2, 3, 4, 8, 1.5F);
+            foreach (ZombieInfo info in wavesList.waves[waveNumber].Zombies)
+            {
+                for (int i = 0; i < info.SpawnRoundNumber; i++)
+                    enemySpawner.SpawnEnemy(info);
+            }
 
-            alreadySpawned += spawnRoundNumber;
-            if (alreadySpawned >= spawnWaveNumber)
-                break;
-
-            yield return new WaitForSeconds(spawnRoundInterval);
+            roundNumber++;
+            yield return new WaitForSeconds(wavesList.waves[waveNumber].SpawnRoundInterval);
         }
-        if (spawnWaveNumber < spawnWaveNumberMax)
-            spawnWaveNumber += spawnWaveNumberDelta;
-        if (spawnRoundNumber < spawnRoundNumberMax)
-            spawnRoundNumber += spawnRoundNumberDelta;
-        if (spawnRoundInterval > spawnRoundIntervalMin)
-            spawnRoundInterval -= spawnRoundIntervalDelta;
     }
 
     private void OnEnemyDied(System.Object obj, EventArgs args)

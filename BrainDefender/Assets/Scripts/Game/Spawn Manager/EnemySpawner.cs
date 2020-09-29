@@ -5,22 +5,30 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject EnemyPrefab;
+    private GameObject NormalZombiePrefab;
+    [SerializeField]
+    private GameObject BucketZombiePrefab;
     public List<GameObject> AliveEnemies { get; set; }
 
-    public void SpawnEnemy(float movementSpeed, int healthPoints, int attackDamage, int weight, float minimalDistance)
+    public void SpawnEnemy(ZombieInfo zombieInfo)
     {
-        GameObject enemy = Instantiate(EnemyPrefab, GetRandomPosition(), EnemyPrefab.transform.rotation);
+        GameObject prefab = null;
+        if (zombieInfo is NormalZombieInfo)
+            prefab = NormalZombiePrefab;
+        else if (zombieInfo is BucketZombieInfo)
+            prefab = BucketZombiePrefab;
+        GameObject enemy = Instantiate(prefab, GetRandomPosition(), prefab.transform.rotation);
         RotateEnemy(enemy);
         EnemyStatistics enemyStatistics = enemy.GetComponent<EnemyStatistics>();
-        enemyStatistics.MovementSpeed = movementSpeed;
-        enemyStatistics.HealtPoints = healthPoints;
-        enemyStatistics.MaxHealtPoints = healthPoints;
-        enemyStatistics.AttackDamage = attackDamage;
-        enemyStatistics.Weight = weight;
-        enemyStatistics.MinimalDistance = minimalDistance;
+        enemyStatistics.MovementSpeed = zombieInfo.MovementSpeed;
+        enemyStatistics.HealtPoints = zombieInfo.MaxHealtPoints;
+        enemyStatistics.MaxHealtPoints = zombieInfo.MaxHealtPoints;
+        enemyStatistics.AttackDamage = zombieInfo.AttackDamage;
+        enemyStatistics.Weight = zombieInfo.Weight;
+        enemyStatistics.MinimalDistance = zombieInfo.MinimalDistance;
         AliveEnemies.Add(enemy);
     }
+
 
     public void DestroyAllEnemies(System.Object obj, EventArgs args)
     {

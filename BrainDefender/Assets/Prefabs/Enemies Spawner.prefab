@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8980cf59e320ecc48bbb33f649f5ef93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 8687290462668901405, guid: a3d0c22d0c4e02f4ea9ce9f2beffef2a, type: 3}
+  NormalZombiePrefab: {fileID: 1334286137460158661, guid: 67857b3d77bdf84438b1d1b7c648d8fc, type: 3}
+  BucketZombiePrefab: {fileID: 1383784931398602844, guid: 2eafebd7ff7c6a34db6e77dc58bdc5a7, type: 3}
