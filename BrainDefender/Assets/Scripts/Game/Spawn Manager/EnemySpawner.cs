@@ -59,8 +59,8 @@ public class EnemySpawner : MonoBehaviour
     private GameObject brain;
     private float maxPosY = -1.25f;
     private float minPosY = -5.5f;
-    private int minlengthFromBrainX = 15;
-    private int maxlengthFromBrainX = 20;
+    private float minlengthFromBrainX = 15;
+    private float maxlengthFromBrainX = 20;
 
 
     private void Awake()

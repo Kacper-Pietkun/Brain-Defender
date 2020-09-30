@@ -20,6 +20,8 @@ public class WavesManager : MonoBehaviour
 
     public void StopSpawningWaves(System.Object obj, EventArgs args)
     {
+        isPaused = true;
+
         if (spawningCoroutine != null)
             StopCoroutine(spawningCoroutine);
         if(pauseCoroutine != null)
@@ -29,6 +31,7 @@ public class WavesManager : MonoBehaviour
     public void ResumeSpawningWaves(System.Object obj, EventArgs args)
     {
         pauseCoroutine = StartCoroutine(PauseBetweenSpawning());
+        isPaused = false;
     }
 
 
@@ -42,6 +45,9 @@ public class WavesManager : MonoBehaviour
     private int roundNumber;
     private int aliveEnemies;
 
+    private float timePassed;
+    private bool isPaused;
+
 
     private void Awake()
     {
@@ -50,10 +56,19 @@ public class WavesManager : MonoBehaviour
         EnemyActions.OnDied += OnEnemyDied;
 
         waveNumber = -1;
+        isPaused = false;
+
+    }
+
+    private void Update()
+    {
+        if (!isPaused)
+            timePassed += Time.deltaTime;
     }
 
     private void NextWave()
     {
+        timePassed = 0;
         waveNumber++;
         roundNumber = 0;
         aliveEnemies = wavesList.waves[waveNumber].GetNumberOfAllZombies();
@@ -66,7 +81,8 @@ public class WavesManager : MonoBehaviour
 
     private IEnumerator PauseBetweenSpawning()
     {
-        yield return new WaitForSeconds(wavesList.waves[waveNumber].SpawnRoundInterval);
+        yield return new WaitForSeconds(wavesList.waves[waveNumber].SpawnRoundInterval - timePassed);
+        timePassed = 0;
         spawningCoroutine = StartCoroutine(SpawnWave());
     }
 
@@ -82,6 +98,7 @@ public class WavesManager : MonoBehaviour
 
             roundNumber++;
             yield return new WaitForSeconds(wavesList.waves[waveNumber].SpawnRoundInterval);
+            timePassed = 0;
         }
     }
 
