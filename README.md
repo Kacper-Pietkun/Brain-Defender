@@ -23,7 +23,7 @@
 
 ### General
 Simple Game made in Unity (for android) (Not finished) <br>
-Your goal is to stop zombies from eating the brain. Different types of zombies attack during waves. You can kill them by clicking on their body.
+Your goal is to stop zombies from eating the brain. Different types of zombies attack during waves. You can kill them by clicking on their bodies.
 
 ### Main features
   - Two types of zmobies
